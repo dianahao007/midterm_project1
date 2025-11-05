@@ -3,7 +3,6 @@ title: "Midterm Project 1 Report"
 author: Zixuan Hao, Chishan Sha, Jie Zhao, Yuyao Zhang 
 output: html_document
 date: "`r Sys.Date()`"
-output: html_document
 params:
   production: TRUE
 ---
@@ -11,7 +10,6 @@ params:
 ```{r, set-chunk-opts, echo = FALSE, eval = params$production}
 library(knitr)
 library(tidyverse)
-library(rio)
 library(here)
 opts_chunk$set(
   echo = FALSE, warning = FALSE, message = FALSE
@@ -25,4 +23,21 @@ here::i_am(
 )
 ```
 
+```{r, load_plot, include=FALSE}
+#! read boxplot_data from output directory
+boxplot_data <- readRDS(
+  here::here("output/boxplot_data.rds")
+)
+```
+
+#boxplot
+```{r}
+#!fig.cap = "Baseline MUAC by sex"
+library(ggplot2)
+ggplot(boxplot_data, aes(x = sex, y = muac, fill = sex)) +
+  geom_boxplot() +
+  labs(title = "MUAC by Sex", x = "Sex", y = "MUAC (cm)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none")
+```
 
