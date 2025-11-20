@@ -9,19 +9,23 @@ params:
 
 ```{r, set-chunk-opts, echo = FALSE, eval = params$production}
 library(knitr)
-library(tidyverse)
-library(here)
 opts_chunk$set(
   echo = FALSE, warning = FALSE, message = FALSE
 )
 ```
 
+```{r}
+library(tidyverse)
+library(here)
+```
 
 ```{r, here-i-am, include = FALSE}
 here::i_am(
   "report.Rmd"
 )
 ```
+# introduction
+Severe acute malnutrition (SAM) remains a major contributor to childhood morbidity and mortality, particularly among hospitalized children with medical complications. The dataset used in this project comes from a multicenter double-blind randomized controlled trial evaluating whether a modified therapeutic milk formula (mF75), which is lactose-free and lower in carbohydrates, improves early clinical outcomes compared with the standard WHO F75 formula. The original study investigated whether mF75 could reduce risks associated with carbohydrate malabsorption, diarrhea, and refeeding syndrome—important drivers of early deterioration in SAM. For this project, we conduct a simple exploratory analysis of a subset of the trial data to describe baseline characteristics of enrolled children, examine markers of nutritional recovery (such as MUAC changes), and explore differences across child age or caregiver factors. Our aim is not to replicate the clinical trial findings, but rather to use this dataset to practice reproducible, team-based data analysis and gain insight into patterns relevant to child malnutrition and recovery.
 
 ```{r, load_plot, include=FALSE}
 #! read boxplot_data from output directory
@@ -40,4 +44,8 @@ ggplot(boxplot_data, aes(x = sex, y = muac, fill = sex)) +
   theme_minimal(base_size = 14) +
   theme(legend.position = "none")
 ```
+
+#caregiver_analysis, tbd
+
+#child_muac_recovery, tbd
 
