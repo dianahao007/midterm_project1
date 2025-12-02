@@ -31,7 +31,7 @@ print(summary_stats)
 
 # visualization
 # Boxplot
-ggplot(df, aes(x = caregiver_cat, y = muac_change_pct, fill = caregiver_cat)) +
+boxplot_caregiver<-ggplot(df, aes(x = caregiver_cat, y = muac_change_pct, fill = caregiver_cat)) +
   geom_boxplot() +
   labs(title = "MUAC Change % by Caregiver Type",
        x = "Caregiver Type",
@@ -39,10 +39,27 @@ ggplot(df, aes(x = caregiver_cat, y = muac_change_pct, fill = caregiver_cat)) +
   theme_minimal() +
   theme(legend.position = "none")
 
+# save to output/
+ggsave(
+  filename = here("output", "boxplot_caregiver.png"),
+  plot = boxplot_caregiver,
+  width = 8,
+  height = 5
+)
+
+
 # Dotplot
-ggplot(df, aes(x = caregiver_cat, y = muac_change_pct)) +
+dotplot_caregiver<-ggplot(df, aes(x = caregiver_cat, y = muac_change_pct)) +
   geom_jitter(width = 0.2, height = 0, alpha = 0.6, color = "blue") +
   labs(title = "MUAC Change % by Caregiver Type (Dot Plot)",
        x = "Caregiver Type",
        y = "MUAC Change (%)") +
   theme_minimal()
+
+# save to output/
+ggsave(
+  filename = here("output", "dotplot_caregiver.png"),
+  plot = dotplot_caregiver,
+  width = 8,
+  height = 5
+)

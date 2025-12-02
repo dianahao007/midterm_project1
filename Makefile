@@ -14,3 +14,6 @@ clean:
 	rm -f report.html
 	rm -f output/*.csv
 	rm -f output/*.png
+	
+install:
+	Rscript -e "renv::restore()"
