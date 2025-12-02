@@ -1,0 +1,15 @@
+#R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Reports
+*.html
+*.pdf
+output/*.png
+output/*.csv
+output/*.rds
+
+#renv
+renv/library/
