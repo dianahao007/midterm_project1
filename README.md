@@ -2,7 +2,7 @@
 
 **Authors:** Zixuan Hao, Chishan Sha, Jie Zhao, Yuyao Zhang  
 **Course:** DATA 550 – Midterm Project 1  
-**Last Updated:** November 20, 2025
+**Last Updated:** December 2, 2025
 
 ---
 
@@ -58,6 +58,12 @@ The goal is *not* to replicate the trial’s clinical findings, but to practice 
 
 The project uses a **Makefile** to ensure reproducibility.
 
+##Installation: Restore R Package Environment
+
+Before running the analysis, install all required R packages with:
+`make install`
+This command uses renv to restore the package environment defined in renv.lock.
+
 ### **Build the full report**
 `make`
 
@@ -65,6 +71,18 @@ This automatically:
 1. Runs all analysis scripts in `code/`  
 2. Generates tables and figures in `output/`  
 3. Renders the final HTML report using `f75_code2_render.R`
+The generated HTML file appears as:`report.html`
+
+##Using Updated Data##
+The TAs will replace: `data/f75_interim.csv`with a more recent dataset with the same filename.
+The analysis pipeline is designed to continue working when:
+the number of rows changes
+weeks of data are added or removed
+To rebuild the report after data replacement:`make`
+
+##Clean generated files
+
+To remove intermediate files and rebuild from scratch:`make clean`
 
 ## Data Source
 
